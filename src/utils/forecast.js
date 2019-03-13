@@ -7,7 +7,8 @@ const forecast = (latitude, longitude, callback) => {
         } else if(body.error) {
             callback (' Coordinate error', undefined)
         } else {
-            callback (undefined, body.daily.data[0].summary+' It is currently '+body.currently.temperature+' degrees out. There is '+body.currently.precipProbability+'% chance of '+body.currently.precipType+'.')
+            callback (undefined, body.daily.data[0].summary+' It is currently '+body.currently.temperature+' degrees out. There is '+body.currently.precipProbability+'% chance of '+body.currently.precipType+'.'+
+                        'The lowest temperature during the day is '+body.daily.data[0].temperatureLow+' degrees and the highest temperature is '+body.daily.data[0].temperatureHigh+' degrees.')
         }
     })
 }
